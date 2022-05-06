@@ -1,0 +1,62 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: Gotham Rounded;
+}
+
+body {
+    background-color: #343434;
+    padding: 0.5em;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: rgb(14, 248, 193);
+    border: 1px solid rgb(28, 180, 134);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border-color: black;
+    background-color: rgb(99, 239, 255);
+}
+#button-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    padding: 5px 10px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Rowdies', cursive;
+    transition: all 0.3s ease;
+}
+#button-home:hover {
+    color: white;
+    border-color: white;
+}
