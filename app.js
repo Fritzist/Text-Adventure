@@ -43,7 +43,7 @@ function selectOption(option) {
 const textNodes = [
     {
         id: 1,
-        text: "Du bist in einem Verlassenen Haus aufgewacht und siehst vor dir eine seltsame Flasche mit etwas trinkbaren in sich und ein Feuerzeug. Außerdem steht vor dir ein Schild auf dem steht, das du nur eine Sache mitnehmen darfst. Wähle weise",
+        text: "Du bist in einem Verlassenen Haus aufgewacht und siehst vor dir eine seltsame Flasche mit etwas trinkbaren in sich.",
         options: [
             {
                 text: "Nimm die seltsame Flasche mit",
@@ -76,6 +76,39 @@ const textNodes = [
                 text: "Ignoriere die Händler",
                 nextText: 3
             }
+        ]
+    },
+    {
+        id: 3,
+        text: "Du bist weiter gelaufen und wirst müde, aber hast keine Schlafmöglichkeit.",
+        options: [
+            {
+                text: "Du gehst zurück ins Dorf un tauschst deinen Wertvollengegenstand für ein Schlafplatz.",
+                requiredState: (currentState) => currentState.wertvollerGegenstand,
+                setState: { wertvollerGegenstand: false, schlafplatz: true},
+                nextText: 4
+            },
+            {
+                text: "Du schläfst in einem Wald und machst dir ein Laerfeuer mit deinem Feuerzeug.",
+                requiredState: (currentState) => currentState.feuerzeug,
+                setState: { feuerzeug: false, schlafplatz: true}
+            },
+            {
+                text: "Du schläfst in einem Wald.",
+                nextText: 80
+            }
+        ]    
+    },
+    {
+        id: 80,
+        text: "Du wurdest in der Nacht von Wilden tieren angegriffen und aufgegessen.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
+            }
+            
+
         ]
     }
 ]
