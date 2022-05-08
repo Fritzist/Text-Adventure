@@ -89,15 +89,94 @@ const textNodes = [
                 nextText: 4
             },
             {
-                text: "Du schläfst in einem Wald und machst dir ein Laerfeuer mit deinem Feuerzeug.",
+                text: "Du schläfst in einem Wald und machst dir ein Lagerfeuer mit deinem Feuerzeug.",
                 requiredState: (currentState) => currentState.feuerzeug,
-                setState: { feuerzeug: false, schlafplatz: true}
+                setState: { feuerzeug: false, schlafplatz: true},
+                nextText: 4,
             },
             {
                 text: "Du schläfst in einem Wald.",
                 nextText: 80
             }
         ]    
+    },
+    {
+        id: 4,
+        text: "Du hast gut geschlafen und willst weiter gehen, aber du bekommst Hunger und hast nichts mehr dabei",
+        options:[
+            {
+                text: "Du gehst in dem Dorf betteln",
+                requiredState: (currentState) => currentState.schlafplatz,
+                setState: { betteln: true, schlafplatz: false},
+                nextText: 5
+            },
+            {
+                text: "Du läufst weiter bis du etwas findest",
+                requiredState: (currentState) => currentState.schlafplatz,
+                setState: { hunger: true, schlafplatz: false},
+                nextText: 6,
+            }
+        ]
+    },
+    {
+        id: 5,
+        text: "Du bist wieder in dem Dorf und setzt dich an die Straße um zu betteln",
+        options: [
+            {
+                text: "Leute nach Geld fragen",
+                requiredState: (currentState) => currentState.betteln,
+                setState: { fragen: true},
+                nextText: 7,
+            },
+            {
+                text: "Warten/Musik machen um Geld zu bekommen",
+                requiredState: (currentState) => currentState.betteln,
+                setState: { musik: true},
+                nextText: 8,
+            }
+        ]
+    },
+    {
+        id: 6,
+        text: "Du findest ein Haus und siehst die Besitzer das Haus verlassen",
+        options: [
+            {
+                text: "Du gehst in das Haus und klaust wertvollen Sachen und Sachen die du brauchst",
+                requiredState: (currentState) => currentState.hunger,
+                setState: { klauen: true},
+                // nextText: 
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "Du hast nicht viel geld bekommen.",
+        options: [
+            {
+                text: "Du bist müde und gehst schlafen an der Straße",
+                requiredState: (currentState) => currentState.fragen,
+                setState: { müde: true},
+                nextText: 81,
+            },
+            {
+                text: "Du gehst in einen Wald",
+                requiredState: (currentState) => currentState.fragen,
+                setState: { wald: true},
+                // nextText: 9,
+            }                
+        ]
+    },
+    {
+        id: 8,
+        text: "Du hast viel geld gemacht",
+        options: [
+            {
+                text: "Du gehst essen",
+                requiredState: (currentState) => currentState.musik,
+                setState: { musik: false},
+                // nextText: 10,
+            }
+        ]
     },
     {
         id: 80,
@@ -107,8 +186,6 @@ const textNodes = [
                 text: "Restart",
                 nextText: -1,
             }
-            
-
         ]
     }
 ]
