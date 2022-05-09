@@ -12,6 +12,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+    font-size: 30px;
 }
 
 .container {
@@ -36,6 +37,7 @@ body {
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+    font-size: 25px;
 }
 
 .btn:hover {
