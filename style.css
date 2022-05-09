@@ -18,7 +18,7 @@ body {
 .container {
     width: 800px;
     max-width: 80%;
-    background-color: aliceblue;
+    background-color: rgb(225, 225, 225);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;

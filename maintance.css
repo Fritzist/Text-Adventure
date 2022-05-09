@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+    padding: 0.5em;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-size: 30px;
+    overflow: hidden;
+    color: aliceblue;
+    flex-direction: column;
+}
+
+p {
+    margin-top: 10px;
+}
