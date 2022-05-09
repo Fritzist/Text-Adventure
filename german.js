@@ -144,7 +144,13 @@ const textNodes = [
                 text: "Du gehst in das Haus und klaust wertvollen Sachen und Sachen die du brauchst",
                 requiredState: (currentState) => currentState.hunger,
                 setState: { klauen: true},
-                // nextText: 
+                nextText: 9,
+            },
+            {
+                text: "Du wartest bis die Besitzer wieder zurück kommen und fragst sie nach Geld und Essen",
+                requiredState: (currentState) => currentState.hunger,
+                setState: { besitzerW: true, hunger: false},
+                nextText: 10,
             }
         ]
     },
@@ -162,25 +168,51 @@ const textNodes = [
                 text: "Du gehst in einen Wald",
                 requiredState: (currentState) => currentState.fragen,
                 setState: { wald: true},
-                // nextText: 9,
+                // nextText: 11,
             }                
         ]
     },
     {
         id: 8,
-        text: "Du hast viel geld gemacht",
+        text: "Du hast viel geld verdient",
         options: [
             {
                 text: "Du gehst essen",
                 requiredState: (currentState) => currentState.musik,
                 setState: { musik: false},
-                // nextText: 10,
+                // nextText: 12,
+            }
+        ]
+    },
+    {
+        id: 9,
+        text: "Du hast alles geklaut was du brauchst, aber die Besitzer sehen dich",
+        options: [
+            {
+                text: "Weg rennen",
+                requiredState: (currentState) => currentState.klauen,
+                setState: { wegrennen: true, klauen: false},
+            },
+            {
+                text: "Stehen bleiben und den Besitzern alles erklären",
+                requiredState: (currentState) => currentState.klauen,
+                setState: { stehenBleiben: true, klauen: false}
             }
         ]
     },
     {
         id: 80,
         text: "Du wurdest in der Nacht von Wilden tieren angegriffen und aufgegessen.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
+            }
+        ]
+    },
+    {
+        id: 81,
+        text: "Mitten in der Nacht wirst du von einer Gruppe Verbrechern angegriffen. Sie klauen dir alles und erstechen dich.",
         options: [
             {
                 text: "Restart",
