@@ -168,7 +168,7 @@ const textNodes = [
                 text: "Du gehst in einen Wald",
                 requiredState: (currentState) => currentState.fragen,
                 setState: { wald: true},
-                // nextText: 11,
+                nextText: 11,
             }                
         ]
     },
@@ -180,7 +180,7 @@ const textNodes = [
                 text: "Du gehst essen",
                 requiredState: (currentState) => currentState.musik,
                 setState: { musik: false},
-                // nextText: 12,
+                nextText: 83,
             }
         ]
     },
@@ -189,14 +189,78 @@ const textNodes = [
         text: "Du hast alles geklaut was du brauchst, aber die Besitzer sehen dich",
         options: [
             {
-                text: "Weg rennen",
+                text: "Wegrennen",
                 requiredState: (currentState) => currentState.klauen,
                 setState: { wegrennen: true, klauen: false},
+                nextText: 12,
             },
             {
                 text: "Stehen bleiben und den Besitzern alles erklären",
                 requiredState: (currentState) => currentState.klauen,
-                setState: { stehenBleiben: true, klauen: false}
+                setState: { stehenBleiben: true, klauen: false},
+                nextText: 13,
+            }
+        ]
+    },
+    {
+        id: 10,
+        text: "Die Besitzer geben dir alles und behandeln dich wie ein Kind und sie lassen dich bei ihnen leben",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
+            }
+        ]
+    },
+    {
+        id: 11,
+        text: "Du bist im Wald angekommen, aber hast Hunger und bist Müde",
+        options: [
+            {
+                text: "Beeren suchen",
+                requiredState: (currentState) => currentState.wald,
+                setState: { wald: false},
+                nextText: 82,
+            },
+            {
+                text: "Im Wald schlafen",
+                requiredState: (currentState) => currentState.wald,
+                setState: { wald: false},
+                nextText: 80,
+            }
+        ]
+    },
+    {
+        id: 12,
+        text: "Du hast einen Schatz gefunden im Haus gefunen der sehr Wertvoll ist und verkaufst ihn, nun bist du Reich und hast ein schönes leben",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
+            }
+        ]
+    },
+    {
+        id: 13,
+        text: "Du erzählst den besitzern alles, aber sie rufen die Polizei und lassen dich verhaften",
+        options: [
+            {
+                text: "Wegrennen",
+                nextText: 12,
+            },
+            {
+                text: "Stehen bleiben",
+                nextText: 14,
+            }
+        ]
+    },
+    {
+        id: 14,
+        text: "Du wurdest verhaftet und hast Lebenslängliche Haft bekommen.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
             }
         ]
     },
@@ -219,7 +283,27 @@ const textNodes = [
                 nextText: -1,
             }
         ]
-    }
+    },
+    {
+        id: 82,
+        text: "Du hast leckere Beeren gefunden und sie gegessen. Kurz dannach ging es dir nicht gut und merkst, das die Beeren vergiftet waren. Kurz darauf stirbst du.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
+            }
+        ]
+    },
+    {
+        id: 83,
+        text: "Du hast in einem Restaurante gegessen und warst der 1000000 Kunde, dadurch hast du ein Lotto ticket bekommen, mit dem du 69Millionen € gewinnst",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1,
+            }
+        ]
+    },
 ]
 
 
